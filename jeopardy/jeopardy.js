@@ -3,7 +3,7 @@ const NUM_CATEGORIES = 6;
 const NUM_CLUES_PER_CAT = 5;
 const $LOADING_SPINNER = $(".fa-3x");
 const $BTN = $(".btn");
-let $board = $('#jeopardyBoard');
+const $BOARD = $('#jeopardyBoard');
 // categories is the main data structure for the app; it should eventually look like this:
 
 //  [
@@ -38,6 +38,7 @@ async function getCategoryIds() {
     let catIds = [];
 
     for (let category of selectedCategories) {
+        
         catIds.push(category.id);
     }
 
@@ -78,12 +79,14 @@ async function fillTable() {
     let selectedCategories = await getCategoryIds();
 
     for (let catID of selectedCategories) {
+
          let catData = await getCategory(catID);
+
          categories.push(catData);
     }
 
 
-    $board.html(
+    $BOARD.html(
         `<table class="tg">
         <thead>
           <tr>
@@ -185,16 +188,21 @@ async function fillTable() {
 function handleClick(evt) {
 
    let $currentHTML = $(evt.target).html();
+
    let $question = $(evt.target).data("question");
+
    let $answer = $(evt.target).data("answer");
 
    console.log($currentHTML);
-   console.log($currentHTML === "?");
     /// need to add logic to see if text is ?, question, or answer
     if ($currentHTML === "?") {
+
         $(evt.target).html($question);
+
     } else {
+
         $(evt.target).html($answer);
+
         $(evt.target).css("background-color", "#28a200");
     }
     
@@ -209,6 +217,7 @@ function showLoadingView() {
     $LOADING_SPINNER.css("display","block");
     
     $BTN.text("Loading...");
+
     $BTN.css("background-color", "#74119c");
 
 }
@@ -232,7 +241,7 @@ async function setupGameBoard() {
 
     categories = [];
 
-    $board.empty();
+    $BOARD.empty();
 
     await fillTable();
 
@@ -259,4 +268,5 @@ async function setupAndStart() {
 // ADD THOSE THINGS HERE
 
 $BTN.on("click", setupAndStart);
-$board.on("click", handleClick);
+
+$BOARD.on("click", handleClick);

@@ -7,18 +7,28 @@ Check out the
 ## CSS
 
 ### What are differences between ``display: inline`` and ``display: block``?
+Inline elements only take up as much room as they need and they go side by side with other inline elements.
+Block elements take up 100% of the parent width by default (but can be changed). Block elements also
+ start on a seperate line not side by side.
 
 ### What are some advantages to using a CSS framework like Twitter Bootstrap?
-
+Frameworks come with many premade CSS classes that can make your life easier especially with common things
+you might want to do. It can also make it easier to understand whats going. If you're familiar with Bootstrap 
+you can often get an idea of what the CSS is doing just by looking at the class names. Frameworks can also help 
+standardize styling on large team projects.
 ---
 
 ## jQuery
 
 ### What is jQuery?
+jQuery is a library that makes it easier to manipulate the DOM, and do things like select elements
+and adding animations or event listeners to them, among other things.
 
 ### What are differences between finding things with 
 `document.querySelector(".book")` and `$(".book")`?
 
+The query selector just returns that element. Using $("selector") returns a jQuery object which has lots
+of properties and methods you can use. 
 ---
 
 ## Advanced JavaScript
@@ -28,7 +38,9 @@ It is good for attaching event listeners to elements of a page that you can coun
 Sometimes you need to add an event listener to something that is dynamically added and so it is not there
 when the JS tries to attach the listener.
 
-### What is the `event` object? What kinds of things are in it? 
+### What is the `event` object? What kinds of things are in it?
+Its an object that is used for handling events on the DOM. It has many helpful properties and methods for dealing with events.
+When you create an event listener that gets fired, the event object gets returned that has information about the event, like what was clicked. The event object also has methods that help you deal with things like even bubbling and capturing. 
 
 ### In the Hack or Snooze API project, what did we use async/await for?
 We used it for API requests. The API was used as the backend so all persistent data changes had to be made through the API.
