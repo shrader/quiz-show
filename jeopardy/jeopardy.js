@@ -3,7 +3,7 @@ const NUM_CATEGORIES = 6;
 const NUM_CLUES_PER_CAT = 5;
 const $LOADING_SPINNER = $(".fa-3x");
 const $BTN = $(".btn");
-const $BOARD = $('#jeopardyBoard');
+const $BOARD = $("#jeopardyBoard");
 // categories is the main data structure for the app; it should eventually look like this:
 
 //  [
@@ -38,7 +38,7 @@ async function getCategoryIds() {
     let catIds = [];
 
     for (let category of selectedCategories) {
-        
+
         catIds.push(category.id);
     }
 
@@ -61,7 +61,25 @@ async function getCategory(catId) {
 
     let categoryData = await axios.get(`${BASE_API_URL}category?id=${catId}`);
 
-    console.log("catID's", categoryData.data)
+/* occasionally having issues with single and double quotes being mixed in as well
+ as mis-formatted quotes, solve this problem by looping through the clues and answers
+ and using regex to replace all double quotes with single quotes. 
+ source for regex: https://gist.github.com/MirzaLeka/fe33f850d783997181d97dc02cefc000
+*/
+    for (let clue of categoryData.data.clues) {
+
+        let question = clue.question;
+
+        let answer = clue.answer; 
+
+         question = question.replace(/"/g, "'");
+
+         clue.question = question;
+
+         answer = answer.replace(/"/g, "'");
+
+         clue.answer = answer;
+    }
 
     return categoryData.data;
 }
@@ -85,6 +103,7 @@ async function fillTable() {
          categories.push(catData);
     }
 
+//using the HTML data attribute to attach the questions and answers, so they can be accessed by the event target
 
     $BOARD.html(
         `<table class="tg">
@@ -179,10 +198,6 @@ async function fillTable() {
 
 /** Handle clicking on a clue: show the question or answer.
  *
- * Uses .showing property on clue to determine what to show:
- * - if currently null, show question & set .showing to "question"
- * - if currently "question", show answer & set .showing to "answer"
- * - if currently "answer", ignore click
  * */
 
 function handleClick(evt) {
@@ -193,8 +208,10 @@ function handleClick(evt) {
 
    let $answer = $(evt.target).data("answer");
 
-   console.log($currentHTML);
-    /// need to add logic to see if text is ?, question, or answer
+    /* need to add logic to see if text is ?, question, or answer
+    *  change the HTML / text to whats needed 
+    *  when changing to answer change the background to green as well */
+
     if ($currentHTML === "?") {
 
         $(evt.target).html($question);
@@ -208,7 +225,7 @@ function handleClick(evt) {
     
 }
 
-/** Wipe the current Jeopardy board, show the loading spinner,
+/** Show the loading spinner,
  * and update the button used to fetch data.
  */
 
@@ -232,6 +249,7 @@ function hideLoadingView() {
 }
 
 /** Setup game data and board:
+ * - wipe the board
  * - get random category Ids
  * - get data for each category
  * - call fillTable to create HTML table
