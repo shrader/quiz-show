@@ -1,9 +1,15 @@
 const BASE_API_URL = "http://jservice.io/api/";
+
 const NUM_CATEGORIES = 6;
+
 const NUM_CLUES_PER_CAT = 5;
+
 const $LOADING_SPINNER = $(".fa-3x");
+
 const $BTN = $(".btn");
+
 const $BOARD = $("#jeopardyBoard");
+
 // categories is the main data structure for the app; it should eventually look like this:
 
 //  [
@@ -119,108 +125,233 @@ async function fillTable() {
         </thead>
         <tbody>
           <tr>
-            <td class="trow-1 col-1 question" data-question="${categories[0].clues[0].question}"
-            data-answer="${categories[0].clues[0].answer}">?</td>
-            <td class="trow-1 col-2 question" data-question="${categories[1].clues[0].question}"
-            data-answer="${categories[1].clues[0].answer}">?</td>
-            <td class="trow-1 col-3 question" data-question="${categories[2].clues[0].question}"
-            data-answer="${categories[2].clues[0].answer}">?</td>
-            <td class="trow-1 col-4 question" data-question="${categories[3].clues[0].question}"
-            data-answer="${categories[3].clues[0].answer}">?</td>
-            <td class="trow-1 col-5 question" data-question="${categories[4].clues[0].question}"
-            data-answer="${categories[4].clues[0].answer}">?</td>
-            <td class="trow-1 col-6 question" data-question="${categories[5].clues[0].question}"
-            data-answer="${categories[5].clues[0].answer}">?</td>
+            <td class="trow-1 col-1 question" data-question="${categories[0].clues[0].question}" data-answer="${categories[0].clues[0].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-1 col-2 question" data-question="${categories[1].clues[0].question}" data-answer="${categories[1].clues[0].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-1 col-3 question" data-question="${categories[2].clues[0].question}" data-answer="${categories[2].clues[0].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-1 col-4 question" data-question="${categories[3].clues[0].question}" data-answer="${categories[3].clues[0].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-1 col-5 question" data-question="${categories[4].clues[0].question}" data-answer="${categories[4].clues[0].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-1 col-6 question" data-question="${categories[5].clues[0].question}" data-answer="${categories[5].clues[0].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
           </tr>
           <tr>
-            <td class="trow-2 col-1 question" data-question="${categories[0].clues[1].question}"
-            data-answer="${categories[0].clues[1].answer}">?</td>
-            <td class="trow-2 col-2 question" data-question="${categories[1].clues[1].question}"
-            data-answer="${categories[1].clues[1].answer}">?</td>
-            <td class="trow-2 col-3 question" data-question="${categories[2].clues[1].question}"
-            data-answer="${categories[2].clues[1].answer}">?</td>
-            <td class="trow-2 col-4 question" data-question="${categories[3].clues[1].question}"
-            data-answer="${categories[3].clues[1].answer}">?</td>
-            <td class="trow-2 col-5 question" data-question="${categories[4].clues[1].question}"
-            data-answer="${categories[4].clues[1].answer}">?</td>
-            <td class="trow-2 col-6 question" data-question="${categories[5].clues[1].question}"
-            data-answer="${categories[5].clues[1].answer}">?</td>
+            <td class="trow-2 col-1 question" data-question="${categories[0].clues[1].question}" data-answer="${categories[0].clues[1].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-2 col-2 question" data-question="${categories[1].clues[1].question}" data-answer="${categories[1].clues[1].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-2 col-3 question" data-question="${categories[2].clues[1].question}" data-answer="${categories[2].clues[1].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-2 col-4 question" data-question="${categories[3].clues[1].question}" data-answer="${categories[3].clues[1].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-2 col-5 question" data-question="${categories[4].clues[1].question}" data-answer="${categories[4].clues[1].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-2 col-6 question" data-question="${categories[5].clues[1].question}" data-answer="${categories[5].clues[1].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
           </tr>
           <tr>
-            <td class="trow-3 col-1 question" data-question="${categories[0].clues[2].question}"
-            data-answer="${categories[0].clues[2].answer}">?</td>
-            <td class="trow-3 col-2 question" data-question="${categories[1].clues[2].question}"
-            data-answer="${categories[1].clues[2].answer}">?</td>
-            <td class="trow-3 col-3 question" data-question="${categories[2].clues[2].question}"
-            data-answer="${categories[2].clues[2].answer}">?</td>
-            <td class="trow-3 col-4 question" data-question="${categories[3].clues[2].question}"
-            data-answer="${categories[3].clues[2].answer}">?</td>
-            <td class="trow-3 col-5 question" data-question="${categories[4].clues[2].question}"
-            data-answer="${categories[4].clues[2].answer}">?</td>
-            <td class="trow-3 col-6 question" data-question="${categories[5].clues[2].question}"
-            data-answer="${categories[5].clues[2].answer}">?</td>
+            <td class="trow-3 col-1 question" data-question="${categories[0].clues[2].question}" data-answer="${categories[0].clues[2].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-3 col-2 question" data-question="${categories[1].clues[2].question}" data-answer="${categories[1].clues[2].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-3 col-3 question" data-question="${categories[2].clues[2].question}" data-answer="${categories[2].clues[2].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-3 col-4 question" data-question="${categories[3].clues[2].question}" data-answer="${categories[3].clues[2].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-3 col-5 question" data-question="${categories[4].clues[2].question}" data-answer="${categories[4].clues[2].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-3 col-6 question" data-question="${categories[5].clues[2].question}" data-answer="${categories[5].clues[2].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
           </tr>
           <tr>
-            <td class="trow-4 col-1 question" data-question="${categories[0].clues[3].question}"
-            data-answer="${categories[0].clues[3].answer}">?</td>
-            <td class="trow-4 col-2 question" data-question="${categories[1].clues[3].question}"
-            data-answer="${categories[1].clues[3].answer}">?</td>
-            <td class="trow-4 col-3 question" data-question="${categories[2].clues[3].question}"
-            data-answer="${categories[2].clues[3].answer}">?</td>
-            <td class="trow-4 col-4 question" data-question="${categories[3].clues[3].question}"
-            data-answer="${categories[3].clues[3].answer}">?</td>
-            <td class="trow-4 col-5 question" data-question="${categories[4].clues[3].question}"
-            data-answer="${categories[4].clues[3].answer}">?</td>
-            <td class="trow-4 col-6 question" data-question="${categories[5].clues[3].question}"
-            data-answer="${categories[5].clues[3].answer}">?</td>
+            <td class="trow-4 col-1 question" data-question="${categories[0].clues[3].question}" data-answer="${categories[0].clues[3].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            <td class="trow-4 col-2 question" data-question="${categories[1].clues[3].question}" data-answer="${categories[1].clues[3].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            <td class="trow-4 col-3 question" data-question="${categories[2].clues[3].question}" data-answer="${categories[2].clues[3].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            <td class="trow-4 col-4 question" data-question="${categories[3].clues[3].question}" data-answer="${categories[3].clues[3].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            <td class="trow-4 col-5 question" data-question="${categories[4].clues[3].question}" data-answer="${categories[4].clues[3].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            <td class="trow-4 col-6 question" data-question="${categories[5].clues[3].question}" data-answer="${categories[5].clues[3].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
           </tr>
           <tr>
-            <td class="trow-5 col-1 question" data-question="${categories[0].clues[4].question}"
-            data-answer="${categories[0].clues[4].answer}">?</td>
-            <td class="trow-5 col-2 question" data-question="${categories[1].clues[4].question}"
-            data-answer="${categories[1].clues[4].answer}">?</td>
-            <td class="trow-5 col-3 question" data-question="${categories[2].clues[4].question}"
-            data-answer="${categories[2].clues[4].answer}">?</td>
-            <td class="trow-5 col-4 question" data-question="${categories[3].clues[4].question}"
-            data-answer="${categories[3].clues[4].answer}">?</td>
-            <td class="trow-5 col-5 question" data-question="${categories[4].clues[4].question}"
-            data-answer="${categories[4].clues[4].answer}">?</td>
-            <td class="trow-5 col-6 question" data-question="${categories[5].clues[4].question}"
-            data-answer="${categories[5].clues[4].answer}">?</td>
+            <td class="trow-5 col-1 question" data-question="${categories[0].clues[4].question}" data-answer="${categories[0].clues[4].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-5 col-2 question" data-question="${categories[1].clues[4].question}" data-answer="${categories[1].clues[4].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-5 col-3 question" data-question="${categories[2].clues[4].question}" data-answer="${categories[2].clues[4].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-5 col-4 question" data-question="${categories[3].clues[4].question}" data-answer="${categories[3].clues[4].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-5 col-5 question" data-question="${categories[4].clues[4].question}" data-answer="${categories[4].clues[4].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
+            <td class="trow-5 col-6 question" data-question="${categories[5].clues[4].question}" data-answer="${categories[5].clues[4].answer}">
+                <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x"></i>
+                </span>
+            </td>
           </tr>
         </tbody>
         </table>`
     );
-
-
-    console.log("categories on fill table", categories);
+    
+    //Note in this CSS how this ignores sub-elements
+    $("td").on("click", handleClick);
 }
 
 /** Handle clicking on a clue: show the question or answer.
- *
  * */
 
 function handleClick(evt) {
-
-   let $currentHTML = $(evt.target).html();
 
    let $question = $(evt.target).data("question");
 
    let $answer = $(evt.target).data("answer");
 
-    /* need to add logic to see if text is ?, question, or answer
+   let tdClassList = $(this).prop('classList')
+
+
+   //console.log("evt curr target", $(evt.currentTarget));
+
+    /* does the td element clicked have a question class?: use this to decide if we should show the question or the answer 
     *  change the HTML / text to whats needed 
     *  when changing to answer change the background to green as well */
 
-    if ($currentHTML === "?") {
+    if (tdClassList[2] === "question") {
 
+        //change the HTML of the question block from ? to the actual question text
         $(evt.target).html($question);
+
+        //remove the question class so next time this question is clicked it changes to the answer
+        $(this).removeClass( "question");
 
     } else {
 
+        //change the text from the question to the answer
         $(evt.target).html($answer);
 
         $(evt.target).css("background-color", "#28a200");
+
+        //add this class so we can change the cursor
+        $(evt.target).addClass('answer');
     }
     
 }
@@ -237,6 +368,8 @@ function showLoadingView() {
 
     $BTN.css("background-color", "#74119c");
 
+    $BTN.addClass('loading');
+
 }
 
 /** Remove the loading spinner and update the button used to fetch data. */
@@ -245,7 +378,10 @@ function hideLoadingView() {
 
     $LOADING_SPINNER.css("display","none");
 
+    $BTN.removeClass( "loading");
+
     $BTN.text("Restart!");
+
 }
 
 /** Setup game data and board:
@@ -287,4 +423,5 @@ async function setupAndStart() {
 
 $BTN.on("click", setupAndStart);
 
-$BOARD.on("click", handleClick);
+//orginially had even handler on whole board but that didn't work once I added the icons so had to switch to
+//each question instead of $BOARD.on("click", handleClick);

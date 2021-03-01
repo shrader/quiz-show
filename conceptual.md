@@ -34,7 +34,7 @@ of properties and methods you can use.
 ## Advanced JavaScript
 
 ### What is event delegation? Why would you use it?
-It is good for attaching event listeners to elements of a page that you can count on to be there.
+It is good for attaching event listeners to elements of a page that you can count on to be in the DOM.
 Sometimes you need to add an event listener to something that is dynamically added and so it is not there
 when the JS tries to attach the listener.
 
@@ -47,10 +47,10 @@ We used it for API requests. The API was used as the backend so all persistent d
 Because we often needed to wait on the response and use that info we had to use async/await.
 
 ### What happens if you forget the `async` keyword on  the declaration of a function that uses `await` inside of it?
-You will get an error that says await can only be used in async an function.
+You will get an error that says await can only be used in an async function.
 
 ### What happens if you forget the `await` keyword in front of an asynchronous expression?
-The expression will return a promise not the value you were expecting.
+The expression will return a promise, not the value you were expecting.
 
 ### What is the difference between a static method and an instance method?
 Instance methods are a part of the instance and are accessible from the instance object. Static methods are a part of the class itself

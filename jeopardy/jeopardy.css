@@ -68,3 +68,22 @@ table {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+ .loading {
+  cursor: not-allowed;
+}
+
+td.answer {
+  cursor: not-allowed;
+}
+
+.fa-question {
+  color: black !important;
+}
+
+/* This makes sure when you click on a question it ignores sub elements like icons
+  src: https://css-tricks.com/slightly-careful-sub-elements-clickable-things/
+*/
+td > * {
+  pointer-events: none;
+}
