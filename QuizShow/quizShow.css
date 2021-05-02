@@ -1,0 +1,90 @@
+/* some colors you may find useful:
+  #115ff4 -blue
+  #060ce9 -dark blue
+  #28a200 -green
+  #8d2ab5 -purple
+  #74119c -dark purple
+*/
+
+
+body {
+  text-align: center;
+  background-color: #115ff4;
+  color: white;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 40px;
+  margin-top: 2%;
+  margin-bottom: 5px;
+}
+
+button {
+  width:  120px;
+  height: 32px;
+  background-color: #8d2ab5;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #74119c;
+}
+
+th {
+  width: 200px;
+  min-height: 50px;
+  padding: 10px;
+  background-color: #060ce9;
+  border: 2px solid gray;
+}
+
+td {
+  background-color: #060ce9;
+  width: 200px;
+  height: 100px;
+  border: 2px solid gray;
+}
+
+td:hover {
+  cursor: pointer;
+}
+
+table {
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+.fa-spinner {
+  margin-top: 3%;
+}
+
+.question {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+ .loading {
+  cursor: not-allowed;
+  background-color: #74119c;
+}
+
+td.answer {
+  cursor: not-allowed;
+}
+
+.fa-question {
+  color: black !important;
+}
+
+/* This makes sure when you click on a question it ignores sub elements like icons
+  src: https://css-tricks.com/slightly-careful-sub-elements-clickable-things/
+*/
+td > * {
+  pointer-events: none;
+}
