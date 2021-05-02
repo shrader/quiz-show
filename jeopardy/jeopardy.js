@@ -10,6 +10,8 @@ const $BTN = $(".btn");
 
 const $BOARD = $("#jeopardyBoard");
 
+let $TBODY;
+
 // categories is the main data structure for the app; it should eventually look like this:
 
 //  [
@@ -39,7 +41,7 @@ async function getCategoryIds() {
 
     let allCategories = await axios.get(`${BASE_API_URL}categories?count=100`);
 
-    let selectedCategories = _.sampleSize(allCategories.data, 6);
+    let selectedCategories = _.sampleSize(allCategories.data, NUM_CATEGORIES);
 
     let catIds = [];
 
@@ -314,7 +316,9 @@ async function fillTable() {
     );
     
     //Note in this CSS how this ignores sub-elements
-    $("td").on("click", handleClick);
+    //$("td").on("click", handleClick);
+    $TBODY = $("tbody");
+    $TBODY.on("click", handleClick);
 }
 
 /** Handle clicking on a clue: show the question or answer.
@@ -326,10 +330,9 @@ function handleClick(evt) {
 
    let $answer = $(evt.target).data("answer");
 
-   let tdClassList = $(this).prop('classList')
+   let tdClassList = $(evt.target).prop('classList')
 
 
-   //console.log("evt curr target", $(evt.currentTarget));
 
     /* does the td element clicked have a question class?: use this to decide if we should show the question or the answer 
     *  change the HTML / text to whats needed 
@@ -341,7 +344,7 @@ function handleClick(evt) {
         $(evt.target).html($question);
 
         //remove the question class so next time this question is clicked it changes to the answer
-        $(this).removeClass( "question");
+        $(evt.target).removeClass( "question");
 
     } else {
 
@@ -365,8 +368,6 @@ function showLoadingView() {
     $LOADING_SPINNER.css("display","block");
     
     $BTN.text("Loading...");
-
-    $BTN.css("background-color", "#74119c");
 
     $BTN.addClass('loading');
 
@@ -423,5 +424,6 @@ async function setupAndStart() {
 
 $BTN.on("click", setupAndStart);
 
-//orginially had even handler on whole board but that didn't work once I added the icons so had to switch to
-//each question instead of $BOARD.on("click", handleClick);
+//orginially had event handler on whole board but that didn't work once I added the icons so had to switch to
+//each question instead of 
+//$BOARD.on("click", handleClick);

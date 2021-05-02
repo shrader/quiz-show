@@ -71,6 +71,7 @@ table {
 
  .loading {
   cursor: not-allowed;
+  background-color: #74119c;
 }
 
 td.answer {
